@@ -104,7 +104,7 @@ const Movie = ({ navigation}) => {
       
        <SearchComp
         onPress={() => displayPopUp()}
-        movieSelection={selectedMovie}
+        selectedMovie={selectedMovie}
       /> 
 
       <FlatList

@@ -7,11 +7,8 @@ import { StyleSheet, View, Text, FlatList, TouchableOpacity, TextInput, Image, L
 
 import BelowPopUp from '../component/BelowPopUp'
 import MovieComponent from '../component/MovieComponent'
-//import { ProgressLoader } from '../component/ProgressLoader'
 import SearchComp from '../component/SearchComp'
-//import SelectOptionList from '../component/SelectionOptionList'
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
-//import AntDesign from 'react-native-vector-icons/AntDesign';
 import axios from 'axios'
 
 const popUpList = [
@@ -41,10 +38,15 @@ const SearchScreen = ({ navigation }) => {
     }, [])
     useEffect(()=>{
         const newData = movieList.filter((item) => {
+
             const itemData = item.original_title ? item.original_title.toUpperCase() : ''.toUpperCase();
+
             const textData = itemData.toUpperCase();
+
             filterMovie(item);
+
             console.log('newDatanewData====> ',item)
+
             return itemData.indexOf(textData) > -1
             //return item;
         })
@@ -58,56 +60,39 @@ const SearchScreen = ({ navigation }) => {
     const showPopUp = () => {
         setToValue(1)
     }
-    // const getMoviesFromApi = (item) => {
-    //     setIsVisible(true)
-    //     return fetch(item ? item : '')
-    //         .then((response) => response.json())
-    //         .then((json) => {
-    //             console.log("json==", json.results)
-    //             setIsVisible(false)
-    //             // return json.results;
-    //             setMovieList(json.results)
-    //             setFilterData(json.results)
-    //         })
-    //         .catch((error) => {
-    //             console.error(error);
-    //             setIsVisible(false)
-    //         });
-    // };
-
-    // async function getMoviesFromApi(item){
-    //     console.log('await item ',item)
-
-    //     const response = await fetch(item)
-    //     console.log('await response ',response)
-    // } 
     
-    // const getMoviesFromApi = (item) =>{
-    //     console.log('await item ',item)
-    //     const response = axios.get(item)
-    //     console.log('RESPONSE', response)
-    // } 
 
     function getMoviesFromApi(item) {
         console.log("await item ", item);
-        // const response = axios.get(item)
+        
         axios.get(item)
-        //   .get("https://api.themoviedb.org/3/search/movie?api_key=502943dc438dc0caf85eb7b3717b1a10&language=en-US&query=body&page=1")
+        
         .then((data) => {
+
             setIsVisible(false);
+
             setMovieList(data.data.results);
+
             setFilterData(data.data.results)
+
             console.log("data  ", data.data.results);
+
           })
           .catch((error) => console.log(error));
-        // console.log('RESPONSE   ', response.results)
+        
       }
     
 
     const filterMovie = (item) => {
+
         console.log('filterMovie search ',item)
+
         if (item === 'movie') {
+
+
             getMoviesFromApi(`https://api.themoviedb.org/3/search/movie?api_key=8e612f97d036e6a7ee466a431543af09&language=en-US&query=${search}&page=1`)
+
+            //(item)
             setMovieSelection(item)
             setSelect(item)
             setToValue(0)
@@ -129,7 +114,7 @@ const SearchScreen = ({ navigation }) => {
             setCallApi(true)
         }
     }
-    const searchFilter = (text) => {
+    const searchFilterList = (text) => {
         if (text) {
             getMoviesFromApi(`https://api.themoviedb.org/3/search/movie?api_key=8e612f97d036e6a7ee466a431543af09&language=en-US&query=${text}&page=1`)
             
@@ -166,9 +151,9 @@ const SearchScreen = ({ navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                 <SearchComp
                     onPress={() => showPopUp()}
-                    movieSelection={movieSelection}
+                    selectedMovie={movieSelection}
                 />
-                <TouchableOpacity onPress={() => { console.log('searcssssh  ',search); searchFilter(search)}} style={{ backgroundColor: 'skyblue', height: 40, width: 100, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+                <TouchableOpacity onPress={() => { console.log('searh  ',search); searchFilterList(search)}} style={{ backgroundColor: 'skyblue', height: 40, width: 100, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                     <EvilIcons size={26} color="white" name="search" style={{}} />
                     <Text style={{ color: 'white' }}>Search</Text>
                 </TouchableOpacity>
@@ -204,11 +189,7 @@ const SearchScreen = ({ navigation }) => {
                         )
                     }}
                 />
-                {/* <SelectOptionList
-                    data={popUpList}
-                    filterMovie={filterMovie}
-                    select={select}
-                /> */}
+                 
             </BelowPopUp>
         </View>
     )

@@ -6,7 +6,9 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const OptionListComp = ({ data,  filterMovie,  select   }) => {
     return (
-        <View style={{ margin: 30 }}>
+
+        <View style={{ margin: 31 }}>
+
             {data.map((item) => {
                 // console.log("item", item.id)
                 return (
@@ -15,6 +17,7 @@ const OptionListComp = ({ data,  filterMovie,  select   }) => {
                             style={{ fontSize: 15, fontWeight: 'bold', }}
                         >
                             {item.heading}
+                           
                         </Text>
                     </TouchableOpacity>
                 );
