@@ -24,19 +24,22 @@ const SearchComp = ({ onPress , selectedMovie }) => {
 const styles = StyleSheet.create({
     container: {
         width: "60%",
-
+//alignSelf: 'center',
         height: 40,
-
+//alignSelf: 'center',
         
         alignSelf: 'center',
         elevation: 4,
         
         justifyContent: 'space-between',
+        //alignSelf: 'center',
         
         flexDirection: 'row',
 
         paddingHorizontal: 10,
+        //alignSelf: 'center',
         margin: 10,
+        //alignSelf: 'center',
 
         alignItems: 'center',
         backgroundColor: 'white',

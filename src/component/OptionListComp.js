@@ -12,7 +12,7 @@ const OptionListComp = ({ data,  filterMovie,  select   }) => {
             {data.map((item) => {
                 // console.log("item", item.id)
                 return (
-                    <TouchableOpacity style={[styles.filterButton, { backgroundColor: item.heading === select ? "#F79489" : 'white' }]} onPress={() => filterMovie(item.heading)}>
+                    <TouchableOpacity style={[styles.fltrBtn, { backgroundColor: item.heading === select ? "#F79489" : 'white' }]} onPress={() => filterMovie(item.heading)}>
                         <Text
                             style={{ fontSize: 15, fontWeight: 'bold', }}
                         >
@@ -26,10 +26,14 @@ const OptionListComp = ({ data,  filterMovie,  select   }) => {
     );
 }
 const styles = StyleSheet.create({
-    filterButton: {
+    fltrBtn: {
+
+        //alignSelf: 'center',
         margin: 1,
         justifyContent: 'center',
+        //alignSelf: 'center',
         height: 30,
+        //alignSelf: 'center',
         width: '100%'
     },
 })

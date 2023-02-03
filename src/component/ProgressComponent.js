@@ -12,19 +12,23 @@ const ProgressComponent = ({ isVisible }) => {
  
             <View style={styles.loaderCenterContainer}>
  
-                <ActivityIndicator size="large" color={"#999999"} />
+                <ActivityIndicator size="large" color={"rgb(242,242,242)"} />
  
             </View>
  
-        </Modal>
+    </Modal>
     );
 };
 const styles = StyleSheet.create({
     loaderCenterContainer: {
         flex: 1,
+         //alignSelf: 'center',
         justifyContent: 'center',
+         //alignSelf: 'center',
         flexGrow: 1,
+         //alignSelf: 'center',
         alignItems: 'center',
+         //alignSelf: 'center',
     },
 })
 export { ProgressComponent };

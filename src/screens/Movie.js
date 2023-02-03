@@ -139,6 +139,12 @@ const Movie = ({ navigation}) => {
           >
             
           </Text>
+          {/* <Text style={styles.title}>Title</Text>
+            <Image
+                style={styles.image}
+                source={{ uri: 'https://image.tmdb.org/t/p/w154/t79ozwWnwekO0ADIzsFP1E5SkvR.jpg'}}
+            />
+            <Text>Overview</Text> */}
         </View>
         <FlatList
           data={comeAlongList}
@@ -156,6 +162,12 @@ const Movie = ({ navigation}) => {
                 ]}
               >
                 <Text style={[styles.filterText, {}]}>{item.heading}</Text>
+                {/* <Text style={styles.title}>Title</Text>
+            <Image
+                style={styles.image}
+                source={{ uri: 'https://image.tmdb.org/t/p/w154/t79ozwWnwekO0ADIzsFP1E5SkvR.jpg'}}
+            />
+            <Text>Overview</Text> */}
               </TouchableOpacity>
             );
           }}
